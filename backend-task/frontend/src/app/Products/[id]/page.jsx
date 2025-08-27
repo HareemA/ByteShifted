@@ -6,14 +6,24 @@ import { useEffect, useState } from "react";
 export default function ProductPage() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const get_product_data = async () => {
+      setLoading(true);
+      setError(null); // Reset previous error
       try {
         const res = await axios.get(`http://127.0.0.1:5000/product/${id}`);
         setProduct(res.data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
+      } catch (err) {
+        console.error("Error fetching product:", err);
+        setError(
+          err.response?.data?.message ||
+            "Failed to fetch product data. Please try again."
+        );
+      } finally {
+        setLoading(false);
       }
     };
     get_product_data();
@@ -38,10 +48,18 @@ export default function ProductPage() {
     { title: "Weight", value: formatValue(product?.dimensions?.weight) },
   ];
 
-  if (!product) {
+  if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
         Loading...
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-red-600 font-semibold">{error}</p>
       </div>
     );
   }

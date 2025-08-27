@@ -77,7 +77,7 @@ def fetch_products_page(page=1, limit=20):
                         p.get("created_at"),
                         p.get("updated_at"),
                     ))
-                    product_number = p.get("number")  # safer than fetchone()
+                    product_number = p.get("number") 
                 except Exception as e:
                     print(f"[PRODUCT INSERT ERROR] Product {p.get('number')}: {e}")
                     conn.rollback()
@@ -89,13 +89,13 @@ def fetch_products_page(page=1, limit=20):
                     cur.execute("""
                         INSERT INTO product_dimensions (product_number, weight, weight_unit, height, width, depth, size_unit)
                         VALUES (%s, %s, %s, %s, %s, %s, %s)
-                        ON CONFLICT (id) DO UPDATE SET
-                            weight = EXCLUDED.weight,
-                            weight_unit = EXCLUDED.weight_unit,
-                            height = EXCLUDED.height,
-                            width = EXCLUDED.width,
-                            depth = EXCLUDED.depth,
-                            size_unit = EXCLUDED.size_unit
+                         ON CONFLICT (product_number) DO UPDATE SET
+                        weight = EXCLUDED.weight,
+                        weight_unit = EXCLUDED.weight_unit,
+                        height = EXCLUDED.height,
+                        width = EXCLUDED.width,
+                        depth = EXCLUDED.depth,
+                        size_unit = EXCLUDED.size_unit
                     """, (
                         product_number,
                         dims.get("weight"),
@@ -113,20 +113,21 @@ def fetch_products_page(page=1, limit=20):
                 try:
                     pics = p.get("pictures", {})
                     cur.execute("""
-                        INSERT INTO product_pictures (product_number, thumb, display, large, original)
-                        VALUES (%s, %s, %s, %s, %s)
-                        ON CONFLICT (id) DO UPDATE SET
-                            thumb = EXCLUDED.thumb,
-                            display = EXCLUDED.display,
-                            large = EXCLUDED.large,
-                            original = EXCLUDED.original
-                    """, (
-                        product_number,
-                        pics.get("thumb"),
-                        pics.get("display"),
-                        pics.get("large"),
-                        pics.get("original"),
-                    ))
+                    INSERT INTO product_pictures (
+                        product_number, thumb, display, large, original
+                    ) VALUES (%s, %s, %s, %s, %s)
+                    ON CONFLICT (product_number) DO UPDATE SET
+                        thumb = EXCLUDED.thumb,
+                        display = EXCLUDED.display,
+                        large = EXCLUDED.large,
+                        original = EXCLUDED.original
+                """, (
+                    product_number,
+                    pics.get("thumb"),
+                    pics.get("display"),
+                    pics.get("large"),
+                    pics.get("original"),
+                ))
                 except Exception as e:
                     print(f"[PICTURES INSERT ERROR] Product {product_number}: {e}")
                     conn.rollback()

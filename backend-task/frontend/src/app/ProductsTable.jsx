@@ -17,17 +17,31 @@ export default function ProductsTable() {
   const [products, setProducts] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
   const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const get_products = async () => {
-      const res = await axios.get(
-        `http://127.0.0.1:5000/products?page=${page}&limit=${limit}`
-      );
-      setProducts(res.data.products);
-      setTotalItems(res.data.total);
+    const getProducts = async () => {
+      setLoading(true);
+      setError(null); // reset previous errors
+      try {
+        const res = await axios.get(
+          `http://127.0.0.1:5000/products?page=${page}&limit=${limit}`
+        );
+        setProducts(res.data.products);
+        setTotalItems(res.data.total);
+      } catch (err) {
+        console.error(err);
+        setError(
+          err.response?.data?.message ||
+            "Failed to fetch products. Please try again."
+        );
+      } finally {
+        setLoading(false);
+      }
     };
 
-    get_products();
+    getProducts();
   }, [page, limit]);
 
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
@@ -54,7 +68,7 @@ export default function ProductsTable() {
   const totalPages = Math.ceil(totalItems / limit);
 
   return (
-    <div className="flex flex-col items-center  w-full bg-gray-100 pb-10 px-4 sm:px-6 lg:px-10">
+    <div className="flex flex-col items-center w-full bg-gray-100 pb-10 px-4 sm:px-6 lg:px-10 min-h-screen">
       <h1 className="font-bold text-2xl sm:text-3xl text-center mt-10 mb-10">
         Products List
       </h1>
@@ -64,12 +78,19 @@ export default function ProductsTable() {
           <h5 className="font-bold">Search</h5>
           <input
             className="border p-1 rounded-[10px]"
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
           />
           <SearchIcon />
         </div>
+
+        {/* Error message */}
+        {error && (
+          <div className="bg-red-100 text-red-700 p-3 rounded mb-3">
+            {error}
+          </div>
+        )}
+
         <table className="min-w-full border border-gray-300 shadow-lg">
           <thead>
             <tr className="bg-gray-300">
@@ -109,35 +130,34 @@ export default function ProductsTable() {
           </thead>
 
           <tbody className="bg-white">
-            {filteredProducts
-              ? filteredProducts.map((p, i) => (
-                  <tr
-                    key={p.number}
-                    onClick={() => router.push(`/Products/${p.number}`)}
-                    className={`${
-                      i % 2 === 0 ? "bg-gray-100" : "bg-white"
-                    } hover:bg-gray-200 cursor-pointer`}
-                  >
-                    <td className="px-4 py-2">{p.name}</td>
-                    <td className="px-4 py-2">{p.sales_price}</td>
-                    <td className="px-4 py-2">{p.stock_quantity}</td>
-                    <td className="px-4 py-2">{p.description}</td>
-                  </tr>
-                ))
-              : sortedProducts.map((p, i) => (
-                  <tr
-                    key={p.number}
-                    onClick={() => router.push(`/Products/${p.number}`)}
-                    className={`${
-                      i % 2 === 0 ? "bg-gray-100" : "bg-white"
-                    } hover:bg-gray-200 cursor-pointer`}
-                  >
-                    <td className="px-4 py-2">{p.name}</td>
-                    <td className="px-4 py-2">{p.sales_price}</td>
-                    <td className="px-4 py-2">{p.stock_quantity}</td>
-                    <td className="px-4 py-2">{p.description}</td>
-                  </tr>
-                ))}
+            {loading ? (
+              <tr>
+                <td colSpan={4} className="text-center p-4">
+                  Loading...
+                </td>
+              </tr>
+            ) : filteredProducts.length > 0 ? (
+              filteredProducts.map((p, i) => (
+                <tr
+                  key={p.number}
+                  onClick={() => router.push(`/Products/${p.number}`)}
+                  className={`${
+                    i % 2 === 0 ? "bg-gray-100" : "bg-white"
+                  } hover:bg-gray-200 cursor-pointer`}
+                >
+                  <td className="px-4 py-2">{p.name}</td>
+                  <td className="px-4 py-2">{p.sales_price}</td>
+                  <td className="px-4 py-2">{p.stock_quantity}</td>
+                  <td className="px-4 py-2">{p.description}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={4} className="text-center p-4">
+                  No products found.
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
