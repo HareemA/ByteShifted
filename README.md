@@ -48,5 +48,5 @@ DB_PASSWORD=YOUR_DB_PASSWORD
   python main.py
 
 Notes:
-- Currently fetching 500 products from Rackbeat.
+- Currently fetching 200 products from Rackbeat.
 - To change the number of products fetched, update total_limit and limit_per_page in main.py.
