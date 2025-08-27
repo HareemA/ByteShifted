@@ -5,7 +5,7 @@ export function Hiring() {
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>How we hire our team</h2>
-      <div className={styles.row}>
+      <div className={styles.displayLarge}>
         {/* col 1 */}
         <div className={`${styles.col} ${styles.col1}`}>
           <HiringCard
@@ -29,6 +29,38 @@ export function Hiring() {
             <HiringCard title={"04"} heading={"Final Interview"} />
           </div>
         </div>
+      </div>
+
+      {/* Medium */}
+      <div className={styles.displayMedium}>
+        <div className={styles.upperMed}>
+          <div className={styles.col1Med}>
+            <HiringCard
+              title={"01"}
+              heading={"Application and recruiter screen"}
+            />
+            <img src={"hiring2.png"} className={styles.image2} />
+          </div>
+          <div className={styles.col2Med}>
+            <img src={"hiring1.png"} className={styles.image1} />
+            <HiringCard title={"02"} heading={"First round interview"} />
+            <img src={"hiring3.png"} className={styles.image3} />
+            <HiringCard title="03" heading={"Task or challenge"} />
+          </div>
+        </div>
+        <div>
+          <HiringCard title={"04"} heading={"Final Interview"} />
+        </div>
+      </div>
+      {/* Small */}
+      <div className={styles.displaySmall}>
+        <HiringCard title={"01"} heading={"Application and recruiter screen"} />
+        <img src="hiring1.png" className={styles.image1} />
+        <HiringCard title={"02"} heading={"First round interview"} />
+        <img src="hiring2.png" className={styles.image2} />
+        <HiringCard title={"03"} heading={"Task or challenge"} />
+        <img src="hiring3.png" className={styles.image3} />
+        <HiringCard title={"04"} heading={"Final Interview"} />
       </div>
     </div>
   );
