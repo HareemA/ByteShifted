@@ -30,6 +30,14 @@ export function Header() {
         </div>
       </div>
 
+      <div className={styles.spiralImage}>
+        <img src="spiral.png" alt="Spiral" />
+      </div>
+
+      <div className={styles.dotImage}>
+        <img src="dot.png" alt="Dot" />
+      </div>
+
       <div className={styles.imageWrapper}>
         <img src="header-img.png" alt="Header" />
       </div>

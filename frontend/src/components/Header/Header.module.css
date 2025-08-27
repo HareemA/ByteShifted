@@ -3,6 +3,7 @@
   flex-direction: row;
   padding-right: 135px;
   padding-left: 180px;
+  position: relative;
 }
 
 /* Text Section */
@@ -84,6 +85,23 @@
   display: none;
 }
 
+.spiralImage {
+  position: absolute;
+  top: 90px;
+  left: 730px;
+  width: 160px;
+  height: auto;
+}
+
+.dotImage {
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  width: 40px;
+  height: auto;
+  display: none;
+}
+
 @media (max-width: 1470px) {
   .header {
     padding-left: 120px;
@@ -103,6 +121,24 @@
   }
   .searchBtn {
     width: 150px;
+  }
+  .spiralImage {
+    top: 200px;
+    left: 600px;
+  }
+}
+
+@media (max-width: 1342px) {
+  .spiralImage {
+    top: 150px;
+    left: 550px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .spiralImage {
+    top: 100px;
+    left: 500px;
   }
 }
 
@@ -128,6 +164,10 @@
   }
   .textSection {
     gap: 20px;
+  }
+  .spiralImage {
+    top: 150px;
+    left: 400px;
   }
 }
 
@@ -176,6 +216,25 @@
   .buttonWrapperLarge {
     display: none;
   }
+  .spiralImage {
+    display: none;
+  }
+  .dotImage {
+    display: block;
+  }
+}
+
+@media (max-width: 1000px) {
+  .dotImage {
+    left: 100px;
+    top: 350px;
+  }
+}
+
+@media (max-width: 780px) {
+  .dotImage {
+    left: 80px;
+  }
 }
 
 @media (max-width: 719px) {
@@ -189,6 +248,13 @@
   .heading {
     font-size: 60px;
     text-align: left;
+  }
+}
+
+@media (max-width: 666px) {
+  .dotImage {
+    left: 40px;
+    top: 250px;
   }
 }
 
@@ -211,6 +277,12 @@
   .searchBtn {
     width: 130px;
     height: 70px;
+  }
+}
+
+@media (max-width: 780px) {
+  .dotImage {
+    left: 20px;
   }
 }
 
