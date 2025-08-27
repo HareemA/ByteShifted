@@ -1,0 +1,212 @@
+.container {
+  position: relative;
+  margin-top: 100px;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("/openings.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 80px;
+}
+
+.heading {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: white;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 27px;
+}
+
+/* Card styles */
+.card {
+  width: 578px;
+  height: 254px;
+  border-radius: 47.8px;
+  background: black;
+  padding: 44px 32px 35px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cardTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+}
+
+.cardTitleRow {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+}
+
+.cardLogo {
+  width: 32px;
+  height: 32px;
+}
+
+.cardTitle {
+  font-family: "Figtree", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: white;
+}
+
+.cardBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardMeta {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  color: white;
+  font-size: 14px;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.detailsButton {
+  border-radius: 8px;
+  padding: 14px 20px;
+  background: #0ddf72;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+}
+
+/* Responsive Breakpoints */
+
+@media (max-width: 1490px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 1387px) {
+  .container {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+@media (max-width: 1300px) {
+  .cardsWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .card {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .heading {
+    font-size: 30px;
+  }
+  .cardTitle {
+    font-size: 20px;
+  }
+  .detailsButton {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+  .container {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 590px) {
+  .cardMeta {
+    gap: 60px;
+  }
+  .cardBottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .detailsButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 558px) {
+  .cardMeta {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 514px) {
+  .cardMeta {
+    gap: 40px;
+    font-size: 12px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+  .cardLogo {
+    width: 30px;
+  }
+  .cardTop {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 482px) {
+  .cardMeta {
+    gap: 20px;
+    font-size: 8px;
+  }
+  .detailsButton {
+    font-size: 10px;
+  }
+}

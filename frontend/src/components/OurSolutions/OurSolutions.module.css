@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 47px 180px 53px 180px;
+  gap: 88px;
+  margin-top: 100px;
+}
+
+.imageWrapper {
+  flex: 1; /* allow flexibility */
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px; /* keep image large but capped */
+  height: auto;
+  border-radius: 31.35px;
+}
+
+.textWrapper {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: white;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #0ddf72;
+}
+
+.paragraph {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.break {
+  display: block;
+}
+
+/* Medium screens (1200px and down) */
+@media (max-width: 1200px) {
+  .container {
+    padding: 40px 50px;
+    gap: 50px;
+  }
+
+  .heading {
+    font-size: 42px;
+  }
+
+  .paragraph {
+    font-size: 17px;
+  }
+
+  .image {
+    max-width: 380px; /* still decent size */
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    padding: 30px;
+    gap: 30px;
+  }
+
+  .break {
+    display: none;
+  }
+
+  .heading {
+    font-size: 38px;
+    text-align: left;
+  }
+
+  .paragraph {
+    font-size: 16px;
+    text-align: left;
+    max-width: 600px;
+  }
+
+  .image {
+    max-width: 656px;
+  }
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+}
+
+@media (max-width: 800px) {
+  .heading {
+    font-size: 36px;
+    text-align: left;
+  }
+
+  .paragraph {
+    font-size: 15px;
+    text-align: left;
+    max-width: 500px;
+  }
+
+  .image {
+    max-width: 556px;
+  }
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+}
+
+@media (max-width: 460px) {
+  .heading {
+    font-size: 30px;
+    text-align: left;
+  }
+
+  .paragraph {
+    font-size: 14px;
+    text-align: left;
+    max-width: 500px;
+  }
+
+  .image {
+    max-width: 336px;
+  }
+}

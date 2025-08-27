@@ -1,0 +1,134 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 180px;
+  gap: 89px;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.heading {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: white;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #0ddf72;
+}
+
+.break {
+  display: block;
+}
+
+.divider {
+  width: 1px;
+  background-color: #878787;
+  align-self: stretch;
+}
+
+.iconsWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 166px;
+}
+
+.iconCard {
+  width: 175px;
+  height: 168px;
+}
+
+.iconImage {
+  width: 94px;
+  height: 94px;
+}
+
+.iconText {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  color: white;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    margin-left: 50px;
+    gap: 50px;
+  }
+
+  .heading {
+    font-size: 42px;
+  }
+
+  .iconText {
+    font-size: 16px;
+  }
+
+  .iconsWrapper {
+    gap: 100px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    padding-right: 39px;
+    padding-left: 39px;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .heading {
+    font-size: 64px;
+    text-align: left;
+  }
+
+  .iconsWrapper {
+    justify-content: flex-start;
+    gap: 60px;
+  }
+  .divider {
+    width: 100%;
+    height: 1px;
+    align-self: center;
+  }
+}
+
+@media (max-width: 540px) {
+  .iconsWrapper {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .heading {
+    font-size: 34px;
+  }
+  .container {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .iconsWrapper {
+    gap: 25px;
+  }
+
+  .iconText {
+    font-size: 12px;
+  }
+
+  .iconCard {
+    width: 132px;
+    height: auto;
+  }
+  .iconImage {
+    width: 72px;
+    height: 72px;
+  }
+  .break {
+    display: none;
+  }
+}

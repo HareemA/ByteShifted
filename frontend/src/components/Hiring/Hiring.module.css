@@ -1,0 +1,127 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 201px;
+  width: 1368px;
+}
+
+.heading {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: white;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.col1 {
+  width: 456px;
+}
+
+.col2Inner {
+  display: flex;
+  flex-direction: column;
+  width: 456px;
+}
+
+.col2Row {
+  display: flex;
+  flex-direction: row;
+  gap: 16px; /* gap-4 in Tailwind */
+}
+
+.image1 {
+  width: 443px;
+  height: 318px;
+}
+
+.image2 {
+  width: 387px;
+  height: 804px;
+}
+
+.image3 {
+  width: 443px;
+  height: 318px;
+}
+
+/* HiringCard */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 44px;
+  padding-right: 32px;
+  padding-bottom: 35px;
+  padding-left: 32px;
+  height: 416px;
+}
+
+.cardDefault {
+  width: 443px;
+}
+
+.cardLarge {
+  width: 878px;
+}
+
+.cardTitle {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: #0ddf72;
+}
+
+.cardHeading {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 37px;
+  color: white;
+}
+
+.cardDesc {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: white;
+}
+
+@media (max-width: 1420px) {
+  .card {
+    height: 300px;
+  }
+  .cardTitle {
+    font-size: 50px;
+  }
+  .cardHeading {
+    font-size: 30px;
+  }
+  .cardDesc {
+    font-size: 16px;
+  }
+  .image1 {
+    width: 343px;
+    height: 218px;
+  }
+
+  .image2 {
+    width: 287px;
+    height: 704px;
+  }
+
+  .image3 {
+    width: 343px;
+    height: 218px;
+  }
+}

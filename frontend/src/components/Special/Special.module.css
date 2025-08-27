@@ -1,0 +1,120 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 93px;
+  justify-content: center;
+}
+
+.heading {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 55px;
+  color: white;
+  text-align: center;
+}
+
+.highlight {
+  color: #0ddf72;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  padding-left: 180px;
+  padding-right: 180px;
+}
+
+.card {
+  width: 227px;
+  height: 201px;
+}
+
+.cardHeading {
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  font-size: 37px;
+  color: white;
+}
+
+.cardDesc {
+  font-size: 20px;
+  color: #878787;
+  line-height: 1.4;
+}
+
+@media (max-width: 1400px) {
+  .cardHeading {
+    font-size: 30px;
+  }
+}
+@media (max-width: 1200px) {
+  .heading {
+    font-size: 42px;
+  }
+  .cardsWrapper {
+    gap: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    flex-wrap: wrap;
+  }
+  .cardHeading {
+    font-size: 30px;
+  }
+  .cardDesc {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1127px) {
+  .cardsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+  }
+}
+
+@media (max-width: 766px) {
+  .cardsWrapper {
+    gap: 100px;
+  }
+}
+
+@media (max-width: 656px) {
+  .cardsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px;
+  }
+
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+  .cardHeading {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cardsWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+  }
+
+  .card {
+    width: 80px;
+    height: 80px;
+  }
+  .cardHeading {
+    font-size: 20px;
+    font-weight: normal;
+  }
+  .heading {
+    font-size: 31px;
+  }
+}
