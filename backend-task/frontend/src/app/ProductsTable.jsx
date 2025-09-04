@@ -163,7 +163,23 @@ export default function ProductsTable() {
       </div>
 
       {/* Pagination */}
-      <div className="flex flex-col xs:flex-row gap-2 xs:gap-4 items-center w-full sm:w-full lg:w-[60%] justify-between bg-gray-400 p-2 rounded mt-4 text-xs xs:text-sm">
+      <div className="flex flex-row xs:flex-row gap-2 xs:gap-4 items-center w-full sm:w-full lg:w-[60%] justify-between bg-gray-400 p-2 rounded mt-4 text-xs xs:text-sm">
+        <div className="flex flex-row gap-2 items-center">
+          <p>Rows per page</p>
+          <select
+            name="quantity"
+            id="quantity"
+            className="border p-1"
+            onChange={(e) => {
+              setLimit(Number(e.target.value));
+              setPage(1);
+            }}
+          >
+            <option value={10}>10</option>
+            <option value={20}>20</option>
+            <option value={30}>30</option>
+          </select>
+        </div>
         {products && products.length > 0 ? (
           <p className="text-center xs:text-left">
             Showing {(page - 1) * limit + 1}-
